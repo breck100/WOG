@@ -1,6 +1,7 @@
 from random import random
 import random
 import utils
+import scores
 
 # I am using the difficulty level which was set when the user selected the game, using the value
 # which is 1 to 5 with the power of 10
@@ -32,6 +33,7 @@ def guess_game(difficulty=1):
 
         if compare_numbers(secret_number, player_guess):
             print("KUDOS")
+            scores.add_scores(difficulty)
         else:
             print("You're a loser baby....")
         if utils.do_you_want_to_quit():

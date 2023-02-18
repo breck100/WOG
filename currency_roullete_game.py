@@ -2,6 +2,7 @@ import random
 import requests
 import utils
 from currency_converter import CurrencyConverter
+import scores
 
 
 # get_money_interval - will try to get the actual conversion from the API,
@@ -40,6 +41,7 @@ def play(difficulty):
         user_guess=float(get_guess_from_user(difficulty))
         if (user_guess>interval_list[0] and user_guess<interval_list[1]):
             print("True")
+            scores.add_scores(difficulty)
         else:
             print ("False")
         if utils.do_you_want_to_quit():

@@ -1,8 +1,10 @@
 import random
 import utils
 import time
+import scores
 
 def generate_sequence(difficulty):
+
     n = 0
     sequence = []
     for n in range(0, difficulty):
@@ -33,14 +35,18 @@ def is_list_equal(generated_list, user_list):
 def play(difficulty):
     while True:
         sequnece_list=generate_sequence(difficulty)
-        print (sequnece_list , end='')
+        print (sequnece_list)
+
         time.sleep(0.7)
-        print ("\rNow it is your turn, please add the numbers you remember:)")
+
+        utils.screen_cleaner()
+       # print ("\rNow it is your turn, please add the numbers you remember:)")
         user_list=get_list_from_user(difficulty)
 
         # user_list = list(int(n) for n in user_input.split(" "))
         if(is_list_equal(sequnece_list , user_list)):
             print("Ata Totach")
+            scores.add_scores(difficulty)
         else:
             print("You are loser, you might be a prime minister one day")
         if utils.do_you_want_to_quit():
