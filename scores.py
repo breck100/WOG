@@ -9,7 +9,6 @@ def add_scores(difficulty):
     old_score=f.readline()
     f.close()
     f=open(utils.SCORES_FILE_NAME ,'w')
-    print ("test" + old_score)
     if(old_score != ''):
         score=score+int(old_score)
     f.write(str(score))
