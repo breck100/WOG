@@ -25,8 +25,8 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir('tests') {
-                    bat 'winpty docker-compose exec -it flask_app python3 e2e.py'
+                dir('Scores') {
+                    bat 'winpty docker-compose exec -i flask_app python3 e2e.py'
                 }
             }
         }
