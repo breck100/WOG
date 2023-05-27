@@ -5,7 +5,7 @@ FROM python:3.9
 WORKDIR /app
 
 # Install the dependencies with --no-cache-dir so it wont download the flask app here  ~/.cache/pip
-RUN pip install -r Scores/req.txt
+
 
 # Copy the Flask app and the Utils.py file into the container,
 # IF YOU WILL CHECK THE docker-compose.yml file you will see that in the build:(block) > context:
@@ -18,6 +18,7 @@ COPY utils.py ./app/
 # Copy the name.txt and Scores.txt files into the container
 COPY Scores/scores.txt .
 
+run pip install -r ./app/req.txt
 # Expose the port the app runs on
 EXPOSE 5000
 
