@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 import sys
 
 def test_scores_service(application_url):
-    driver = webdriver.Chrome()  # Replace with the appropriate driver for your browser
+    driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver")  # Replace with the appropriate driver for your browser
     driver.get(application_url)
     score = 0
     try:
