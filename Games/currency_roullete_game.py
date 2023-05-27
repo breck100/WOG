@@ -2,7 +2,7 @@ import random
 import requests
 import utils
 from currency_converter import CurrencyConverter
-import scores
+from Scores import scores
 
 
 # get_money_interval - will try to get the actual conversion from the API,
