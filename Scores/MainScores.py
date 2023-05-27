@@ -5,8 +5,9 @@ import os
 
 def score_server():
     app = Flask(__name__)
-    @app.route("/score")
+    @app.route("/")
     def score():
+       # f = open(utils.SCORES_FILE_NAME, 'r')
         f = open(utils.SCORES_FILE_NAME, 'r')
         score = f.readline()
         f.close()
@@ -23,3 +24,6 @@ def score_server():
     #if __name__ == '__main__':
 
     app.run('0.0.0.0', debug=True, port=5000)
+
+
+score_server()

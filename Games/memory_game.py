@@ -1,7 +1,8 @@
 import random
 import utils
 import time
-import scores
+from Scores import scores
+
 
 def generate_sequence(difficulty):
 

@@ -1,7 +1,6 @@
-import currency_roullete_game
-import memory_game
+from Games import currency_roullete_game, memory_game
 import utils
-from guess_game import guess_game
+from Games.guess_game import guess_game
 # welcome - need some UI
 def welcome():
     name = input("What is your name, dear Friend?")

@@ -1,8 +1,7 @@
 # from live import welcome , load_game
 import live
-import MainScores
-import utils
-from flask import Flask, request, render_template
+from Scores import MainScores
+
 live.welcome()
 live.load_game()
 

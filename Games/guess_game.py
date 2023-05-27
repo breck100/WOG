@@ -1,7 +1,8 @@
 from random import random
 import random
 import utils
-import scores
+from Scores import scores
+
 
 # I am using the difficulty level which was set when the user selected the game, using the value
 # which is 1 to 5 with the power of 10
