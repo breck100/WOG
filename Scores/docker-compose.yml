@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 
 # Define the services (containers) that will be run
 services:
@@ -6,31 +6,19 @@ services:
   flask_app:
     # Build the image from the Dockerfile in the parent directory
     build:
-      context: .
-      dockerfile: Dockerfile
-    
+      context: ../
+      dockerfile: Scores/Dockerfile
+    image: eranc/wog_scores_flask
     # Expose the container's port 5000 to host port 8777
+    volumes:
+      - ./Scores.txt:/app/scores.txt
     ports:
       - "5000:5000"
-    # Set environment variables for the container
+ # Set environment variables for the container
     environment:
-      - FLASK_APP=MainScores.py
+      - FLASK_APP=app/MainScores.py
       - FLASK_RUN_HOST=0.0.0.0
       - FLASK_RUN_PORT=5000
-    # Start the Flask app with "flask run" command
-    command: [ "flask", "run",]
-    # Connect the container to a custom network with a static IP address
-    networks:
-      scores_network:
-        ipv4_address: 172.25.0.5
 
-# Define a custom network for the containers to connect to
-networks:
-  scores_network:
-    # Use the bridge driver for the network
-    driver: bridge
-    # Set the subnet and IP Adress Management driver for the network
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.25.0.5/16
+
+

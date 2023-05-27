@@ -11,14 +11,15 @@ RUN pip install flask
 # IF YOU WILL CHECK THE docker-compose.yml file you will see that in the build:(block) > context:
 # i told Docker that my main directory will be ../   so it will go one folder behind the folder where this files are located, so in the main folder which is WoG
 # And thats why here in COPY i said Scores/Mainscores.py   because now docker see all my main folder and subfolders
-COPY Scores/MainScores.py .
-COPY Utils.py .
+COPY Scores/* ./app/
+COPY Scores/templates/* ./app/templates/
+COPY utils.py ./app/
 
 # Copy the name.txt and Scores.txt files into the container
-COPY Scores/Scores.txt .
+COPY Scores/scores.txt .
 
 # Expose the port the app runs on
 EXPOSE 5000
 
 # Start the Flask app
-CMD ["python", "MainScores.py"]
+CMD ["python", "./app/MainScores.py"]
