@@ -5,7 +5,7 @@ FROM python:3.9
 WORKDIR /app
 
 # Install the dependencies with --no-cache-dir so it wont download the flask app here  ~/.cache/pip
-RUN pip install flask
+RUN pip install -r req.txt
 
 # Copy the Flask app and the Utils.py file into the container,
 # IF YOU WILL CHECK THE docker-compose.yml file you will see that in the build:(block) > context:
