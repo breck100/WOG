@@ -1,9 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import sys
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+
+import sys   #used to set the proper exit code
+
 
 def test_scores_service(application_url):
-    driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver")  # Replace with the appropriate driver for your browser
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.get(application_url)
     score = 0
     try:
@@ -12,8 +17,6 @@ def test_scores_service(application_url):
     except:
         print("ID wasnot found")
         pass
-
-
 
     if 1 <= score <= 1000:
         return True
