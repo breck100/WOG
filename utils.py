@@ -1,9 +1,11 @@
 # a method to check if a number is in range
 import random
 import os
+import time
 
 global SCORES_FILE_NAME, BAD_RETURN_CODE
-SCORES_FILE_NAME = "scores.txt"
+SCORES_FILE_NAME = "./Scores/scores.txt"
+SCORES_FILE_FOR_FLASK = "./Scores.txt"
 
 #error returned from
 BAD_RETURN_CODE = 499
@@ -22,8 +24,10 @@ def do_you_want_to_quit():
     return False
 
 def screen_cleaner():
-    cmd = 'clear'
-
+    time.sleep(0.7)
+    # Check the OS and set the clear command accordingly
     if os.name == 'nt':
-        cmd = 'cls'
-    x=os.system(cmd)
+        os.system('cls')
+    else:
+        os.system('clear')
+
